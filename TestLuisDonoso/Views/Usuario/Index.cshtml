@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TestLuisDonoso.Models.Usuario>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Usuarios</h2>
+
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td class="text-center">UserName</td>
+                <td class="text-center">Nombre</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UserName</td>
+                        <td>@item.Nombre</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2"></td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @Html.ActionLink("Crear", "Create", null, new { @class = "btn btn-lg btn-success float-right" })
+    </div>
+</div>
+

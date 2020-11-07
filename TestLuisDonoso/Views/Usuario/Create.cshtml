@@ -1,0 +1,37 @@
+﻿@model TestLuisDonoso.Models.Usuario
+@{
+    ViewBag.Title = "Creación Usuario";
+}
+
+<h2>Crear Usuario</h2>
+
+@using (Html.BeginForm("Create", "Usuario", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="UserName">UserName:</label>
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @autocomplete = "off", @type = "text", @class = "form-control", @required = "required", @maxlength = "10" } })
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="Nombre">Nombre:</label>
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @autocomplete = "off", @type = "text", @class = "form-control", @required = "required", @maxlength = "50" } })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="Password">Constraseña:</label>
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @autocomplete = "off", @type = "password", @class = "form-control", @required = "required"  } })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <input type="submit" value="Guardar" class="btn btn-lg btn-success float-right" />
+        </div>
+    </div>
+}

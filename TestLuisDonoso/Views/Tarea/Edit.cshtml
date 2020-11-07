@@ -1,0 +1,32 @@
+﻿@model TestLuisDonoso.Models.Tarea
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+
+@using (Html.BeginForm("Update","Tarea", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.ID)
+
+    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @autocomplete = "off", @type = "text", @disabled = "disabled" } })
+
+    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @autocomplete = "off", @type = "text", @disabled = "disabled" } })
+
+    @Html.EditorFor(model => model.Usuario.Nombre, new { htmlAttributes = new { @autocomplete = "off", @type = "text", @disabled = "disabled" } })
+
+    @Html.DropDownList("EstadoID", new SelectList(ViewBag.listEstado, "Value", "Text"), new { @class = "form-control", required = "required" })
+    
+    <input type="submit" value="Guardar" class="btn btn-success" />
+}
+
+
+
+
+
+
+
+
+
+
